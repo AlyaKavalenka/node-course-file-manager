@@ -8,7 +8,7 @@
 `Welcome to the File Manager, Username!`  
 - [x] After program work finished (`ctrl + c` pressed or user sent `.exit` command into console) the program displays the following text in the console  
 `Thank you for using File Manager, Username, goodbye!`  
-- [ ] At the start of the program and after each end of input/operation current working directory should be printed in following way:  
+18. [ ] At the start of the program and after each end of input/operation current working directory should be printed in following way:  
 `You are currently in path_to_working_directory`  
 - [x] Starting working directory is current user's home directory (for example, on Windows it's something like `system_drive/Users/Username`)
 - [x] By default program should prompt user in console to print commands and wait for results  
@@ -17,83 +17,83 @@
 - User can't go upper than root directory (e.g. on Windows it's current local drive root). If user tries to do so, current working directory doesn't change  
 
 List of operations and their syntax:
-- Navigation & working directory (nwd)
-    - Go upper from current directory (when you are in the root folder this operation shouldn't change working directory)  
-    ```bash
-    up
-    ```
-    - Go to dedicated folder from current directory (`path_to_directory` can be relative or absolute)
-    ```bash
-    cd path_to_directory
-    ```
-    - Print in console list of all files and folders in current directory. List should contain:
-        - list should contain files and folder names (for files - with extension)
-        - folders and files are sorted in alphabetical order ascending, but list of folders goes first
-        - type of directory content should be marked explicitly (e.g. as a corresponding column value)
-    ```bash
-    ls
-    ```
-    Example of how `ls` command output may look like  
-    ![ls output example](./ls-example.JPG)  
-- Basic operations with files
-    - Read file and print it's content in console (should be done using Readable stream): 
-    ```bash
-    cat path_to_file
-    ```
-    - Create empty file in current working directory: 
-    ```bash
-    add new_file_name
-    ```
-    - Rename file (content should remain unchanged): 
-    ```bash
-    rn path_to_file new_filename
-    ```
-    - Copy file (should be done using Readable and Writable streams): 
-    ```bash
-    cp path_to_file path_to_new_directory
-    ```
-    - Move file (same as copy but initial file is deleted, copying part should be done using Readable and Writable streams): 
-    ```bash
-    mv path_to_file path_to_new_directory
-    ```
-    - Delete file: 
-    ```bash
-    rm path_to_file
-    ```
-- Operating system info (prints following information in console)
-    - Get EOL (default system End-Of-Line) and print it to console  
-    ```bash
-    os --EOL
-    ```
-    - Get host machine CPUs info (overall amount of CPUS plus model and clock rate (in GHz) for each of them) and print it to console  
-    ```bash
-    os --cpus
-    ```
-    - Get home directory and print it to console  
-    ```bash
-    os --homedir
-    ```
-    - Get current *system user name* (Do not confuse with the username that is set when the application starts) and print it to console  
-    ```bash
-    os --username
-    ```
-    - Get CPU architecture for which Node.js binary has compiled and print it to console  
-    ```bash
-    os --architecture
-    ```
-- Hash calculation  
-    - Calculate hash for file and print it into console  
-    ```bash
-    hash path_to_file
-    ```
-- Compress and decompress operations  
-    - Compress file (using Brotli algorithm, should be done using Streams API)  
-    ```bash
-    compress path_to_file path_to_destination
-    ```
-    - Decompress file (using Brotli algorithm, should be done using Streams API)  
-    ```bash
-    decompress path_to_file path_to_destination
-    ```  
-    NB! After decompressing of previously compressed file result should not differ with originally compressed file
+
+  Navigation & working directory (nwd)
+  1. Go upper from current directory (when you are in the root folder this operation shouldn't change working directory)  
+      ```
+      up
+      ```
+  2. Go to dedicated folder from current directory (`path_to_directory` can be relative or absolute)
+      ```
+      cd path_to_directory
+      ```
+  3. Print in console list of all files and folders in current directory. List should contain:
+    -list should contain files and folder names (for files - with extension)
+    -folders and files are sorted in alphabetical order ascending, but list of folders goes first
+    -type of directory content should be marked explicitly (e.g. as a corresponding column value)
+      ```
+      ls
+      ```
+  Basic operations with files
+  1. Read file and print it's content in console (should be done using Readable stream): 
+      ```
+      cat path_to_file
+      ```
+  2. Create empty file in current working directory: 
+      ```
+      add new_file_name
+      ```
+  3. Rename file (content should remain unchanged): 
+      ```
+      rn path_to_file new_filename
+      ```
+  4. Copy file (should be done using Readable and Writable streams): 
+      ```
+      cp path_to_file path_to_new_directory
+      ```
+  5. Move file (same as copy but initial file is deleted, copying part should be done using Readable and Writable streams): 
+      ```
+      mv path_to_file path_to_new_directory
+      ```
+  6. Delete file: 
+      ```
+      rm path_to_file
+      ```
+  Operating system info (prints following information in console)
+  1.    Get EOL (default system End-Of-Line) and print it to console  
+        ```
+        os --EOL
+        ```
+  2.   Get host machine CPUs info (overall amount of CPUS plus model and clock rate (in GHz) for each of them) and print it to console  
+        ```
+         os --cpus
+        ```
+  3.   Get home directory and print it to console  
+       ```
+       os --homedir
+       ```
+  4.   Get current *system user name* (Do not confuse with the username that is set when the application starts) and print it to console  
+        ```
+        os --username
+        ```
+  5.   Get CPU architecture for which Node.js binary has compiled and print it to console  
+        ```
+        os --architecture
+        ```
+  Hash calculation
+  1.     Calculate hash for file and print it into console  
+         ```
+         hash path_to_file
+         ```
+  Compress and decompress operations
+  1.     Compress file (using Brotli algorithm, should be done using Streams API)  
+         ```
+         compress path_to_file path_to_destination
+         ```
+  2.  Decompress file (using Brotli algorithm, should be done using Streams API)  
+      ```
+      decompress path_to_file path_to_destination
+      ```  
+      
+  NB! After decompressing of previously compressed file result should not differ with originally compressed file
     

@@ -30,13 +30,14 @@ const commands = {
 
 rl
   .on('line', (input) => {
-    const line = input.trim();
-    const command = commands[line];
+    const line = input.trim().split(" ");
+    const command = commands[line[0]];
+    const args = line.splice(1);
 
     if (line === '.exit') {
       rl.close();
     } else if (command) {
-      command();
+      command(args);
     } else {
       console.error('Invalid input');
     }
