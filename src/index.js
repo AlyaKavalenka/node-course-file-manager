@@ -1,10 +1,11 @@
 import * as readline from 'node:readline';
-import currentDirectory from './helpers.js';
+import initialDirectory from './helpers.js';
 import read from './commands/read.js';
 import rename from './commands/rename.js';
 import copy from './commands/copy.js';
 import deleteFile from './commands/deleteFile.js';
 import move from './commands/move.js';
+import cdToFolder from './commands/cdToFolder.js';
 
 const userName = process.argv.filter((item) => item.startsWith('--')).join().split('=').slice(1);
 
@@ -12,8 +13,10 @@ function welcome() {
   console.log(`Welcome to the File Manager, ${userName.length && userName[0] ? userName : 'Anonymous'}!`);
 }
 
+cdToFolder(initialDirectory());
+
 function currentDirectoryMessage() {
-  console.log(`You are currently in ${currentDirectory()}`);
+  console.log(`You are currently in ${process.cwd()}`);
 }
 
 welcome();
@@ -42,6 +45,9 @@ const commands = {
   },
   mv(args) {
     move(args);
+  },
+  cd(path_to_directory) {
+    cdToFolder(path_to_directory);
   }
 };
 
