@@ -6,6 +6,7 @@ import copy from './commands/copy.js';
 import deleteFile from './commands/deleteFile.js';
 import move from './commands/move.js';
 import cdToFolder from './commands/cdToFolder.js';
+import cdUpper from './commands/cdUpper.js';
 
 const userName = process.argv.filter((item) => item.startsWith('--')).join().split('=').slice(1);
 
@@ -48,6 +49,9 @@ const commands = {
   },
   cd(path_to_directory) {
     cdToFolder(path_to_directory);
+  },
+  up() {
+    cdUpper();
   }
 };
 
