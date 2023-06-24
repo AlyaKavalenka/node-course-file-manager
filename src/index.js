@@ -3,6 +3,7 @@ import currentDirectory from './helpers.js';
 import read from './commands/read.js';
 import rename from './commands/rename.js';
 import copy from './commands/copy.js';
+import deleteFile from './commands/deleteFile.js';
 
 const userName = process.argv.filter((item) => item.startsWith('--')).join().split('=').slice(1);
 
@@ -34,6 +35,9 @@ const commands = {
   },
   cp(args) {
     copy(args);
+  },
+  rm(path_to_file) {
+    deleteFile(path_to_file);
   }
 };
 
