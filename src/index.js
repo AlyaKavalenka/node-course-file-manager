@@ -1,4 +1,5 @@
 import * as readline from 'node:readline';
+import currentDirectory from './helpers.js';
 
 const userName = process.argv.filter((item) => item.startsWith('--')).join().split('=').slice(1);
 
@@ -6,7 +7,12 @@ function welcome() {
   console.log(`Welcome to the File Manager, ${userName.length && userName[0] ? userName : 'Anonymous'}!`);
 }
 
+function currentDirectoryMessage() {
+  console.log(`You are currently in ${currentDirectory()}`);
+}
+
 welcome();
+currentDirectoryMessage();
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -35,6 +41,7 @@ rl
       console.error('Invalid input');
     }
 
+    currentDirectoryMessage();
     rl.prompt();
   })
   .on('close', () => {
