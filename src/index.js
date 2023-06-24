@@ -1,5 +1,6 @@
 import * as readline from 'node:readline';
 import currentDirectory from './helpers.js';
+import read from './commands/read.js';
 
 const userName = process.argv.filter((item) => item.startsWith('--')).join().split('=').slice(1);
 
@@ -14,7 +15,7 @@ function currentDirectoryMessage() {
 welcome();
 currentDirectoryMessage();
 
-const rl = readline.createInterface({
+export const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
   prompt: '> ',
@@ -23,8 +24,8 @@ const rl = readline.createInterface({
 rl.prompt();
 
 const commands = {
-  helpMe() {
-    console.log('I neeeed help! I`m so tired');
+  cat(path_to_file) {
+    read(path_to_file);
   },
 };
 
@@ -37,7 +38,7 @@ rl
     if (line === '.exit') {
       rl.close();
     } else if (command) {
-      command(args);
+      command(args.join(','));
     } else {
       console.error('Invalid input');
     }
