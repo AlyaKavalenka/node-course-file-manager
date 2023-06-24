@@ -8,6 +8,7 @@ import move from './commands/move.js';
 import cdToFolder from './commands/cdToFolder.js';
 import cdUpper from './commands/cdUpper.js';
 import list from './commands/list.js';
+import createFile from './commands/createFile.js';
 
 const userName = process.argv.filter((item) => item.startsWith('--')).join().split('=').slice(1);
 
@@ -56,6 +57,9 @@ const commands = {
   },
   ls() {
     list();
+  },
+  add(new_file_name) {
+    createFile(new_file_name);
   }
 };
 
