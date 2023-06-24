@@ -1,0 +1,1 @@
+export const failedError = () => console.error('Operation failed');

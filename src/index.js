@@ -1,6 +1,7 @@
 import * as readline from 'node:readline';
 import currentDirectory from './helpers.js';
 import read from './commands/read.js';
+import rename from './commands/rename.js';
 
 const userName = process.argv.filter((item) => item.startsWith('--')).join().split('=').slice(1);
 
@@ -27,6 +28,9 @@ const commands = {
   cat(path_to_file) {
     read(path_to_file);
   },
+  rn(args) {
+    rename(args);
+  }
 };
 
 rl
@@ -38,7 +42,7 @@ rl
     if (line === '.exit') {
       rl.close();
     } else if (command) {
-      command(args.join(','));
+      command(args.length > 1 ? args : args.join(''));
     } else {
       console.error('Invalid input');
     }

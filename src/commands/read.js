@@ -1,5 +1,6 @@
 import fs from "fs";
 import { rl } from "../index.js";
+import { failedError } from "../constants.js";
 
 export default function read(path_to_file) {
   const stream = fs.createReadStream(path_to_file);
@@ -9,7 +10,5 @@ export default function read(path_to_file) {
     rl.prompt();
   });
 
-  stream.on('error', () => {
-    console.error('Operation failed');
-  })
+  stream.on('error', () => failedError())
 }
