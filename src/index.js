@@ -32,7 +32,7 @@ rl
     } else if (command) {
       command();
     } else {
-      console.log('Unknown command');
+      console.error('Invalid input');
     }
 
     rl.prompt();
