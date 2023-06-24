@@ -2,6 +2,7 @@ import * as readline from 'node:readline';
 import currentDirectory from './helpers.js';
 import read from './commands/read.js';
 import rename from './commands/rename.js';
+import copy from './commands/copy.js';
 
 const userName = process.argv.filter((item) => item.startsWith('--')).join().split('=').slice(1);
 
@@ -30,6 +31,9 @@ const commands = {
   },
   rn(args) {
     rename(args);
+  },
+  cp(args) {
+    copy(args);
   }
 };
 
