@@ -1,7 +1,7 @@
 import fs from "fs";
 import { failedError } from "../constants.js";
 
-export default function copy(args) {
+export default async function copy(args) {
   const [path_to_file, path_to_new_directory] = args;
 
   const read = fs.createReadStream(path_to_file);
