@@ -2,8 +2,8 @@ import path from 'path';
 import fs from 'fs';
 import { failedError } from '../constants.js';
 
-export default function createFile(new_file_name) {
-  const filePath = path.join(process.cwd(), new_file_name);
+export default function createFile(newFileName) {
+  const filePath = path.join(process.cwd(), newFileName);
 
   if (fs.existsSync(filePath)) {
     failedError();

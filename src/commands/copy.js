@@ -1,11 +1,11 @@
-import fs from "fs";
-import { failedError } from "../constants.js";
+import fs from 'fs';
+import { failedError } from '../constants.js';
 
 export default async function copy(args) {
-  const [path_to_file, path_to_new_directory] = args;
+  const [pathToFile, pathToNewDirectory] = args;
 
-  const read = fs.createReadStream(path_to_file);
-  const write = fs.createWriteStream(path_to_new_directory);
+  const read = fs.createReadStream(pathToFile);
+  const write = fs.createWriteStream(pathToNewDirectory);
 
   read.pipe(write);
 

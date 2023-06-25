@@ -1,8 +1,8 @@
-import copy from "./copy.js";
-import deleteFile from "./deleteFile.js";
+import copy from './copy.js';
+import deleteFile from './deleteFile.js';
 
 export default function move(args) {
-  const [path_to_file] = args;
+  const [pathToFile] = args;
 
-  copy(args).then(() => deleteFile(path_to_file));
+  copy(args).then(() => deleteFile(pathToFile));
 }

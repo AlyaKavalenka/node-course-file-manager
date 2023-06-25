@@ -30,7 +30,7 @@ function currentDirectoryMessage() {
 welcome();
 currentDirectoryMessage();
 
-export const rl = readline.createInterface({
+const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
   prompt: '> ',
@@ -39,8 +39,8 @@ export const rl = readline.createInterface({
 rl.prompt();
 
 const commands = {
-  cat(path_to_file) {
-    read(path_to_file);
+  cat(pathToFile) {
+    read(pathToFile);
   },
   rn(args) {
     rename(args);
@@ -48,14 +48,14 @@ const commands = {
   cp(args) {
     copy(args);
   },
-  rm(path_to_file) {
-    deleteFile(path_to_file);
+  rm(pathToFile) {
+    deleteFile(pathToFile);
   },
   mv(args) {
     move(args);
   },
-  cd(path_to_directory) {
-    cdToFolder(path_to_directory);
+  cd(pathToDirectory) {
+    cdToFolder(pathToDirectory);
   },
   up() {
     cdUpper();
@@ -63,11 +63,11 @@ const commands = {
   ls() {
     list();
   },
-  add(new_file_name) {
-    createFile(new_file_name);
+  add(newFileName) {
+    createFile(newFileName);
   },
-  hash(path_to_file) {
-    calcHash(path_to_file);
+  hash(pathToFile) {
+    calcHash(pathToFile);
   },
   os(flag) {
     getSystemInfo(flag);
@@ -82,7 +82,7 @@ const commands = {
 
 rl
   .on('line', (input) => {
-    const line = input.trim().split(" ");
+    const line = input.trim().split(' ');
     const command = commands[line[0]];
     const args = line.splice(1);
 

@@ -18,8 +18,10 @@ export default function list() {
     objArr.push({
       Name: file,
       Type: type,
-    })
-  })
+    });
+
+    return true;
+  });
 
   console.table(objArr);
 }

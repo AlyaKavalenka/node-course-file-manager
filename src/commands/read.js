@@ -1,14 +1,10 @@
-import fs from "fs";
-import { rl } from "../index.js";
-import { failedError } from "../constants.js";
+import fs from 'fs';
+import { failedError } from '../constants.js';
 
-export default function read(path_to_file) {
-  const stream = fs.createReadStream(path_to_file);
-  
-  stream.on('data', (chunk) => {
-    console.log(chunk.toString());
-    rl.prompt();
-  });
+export default function read(pathToFile) {
+  const stream = fs.createReadStream(pathToFile);
 
-  stream.on('error', () => failedError())
+  stream.on('data', (chunk) => console.log(chunk.toString()));
+
+  stream.on('error', () => failedError());
 }
