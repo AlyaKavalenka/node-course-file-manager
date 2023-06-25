@@ -10,6 +10,8 @@ import cdUpper from './commands/cdUpper.js';
 import list from './commands/list.js';
 import createFile from './commands/createFile.js';
 import calcHash from './commands/calcHash.js';
+import getSystemInfo from './commands/getSystemInfo.js';
+import { invalidError } from './constants.js';
 
 const userName = process.argv.filter((item) => item.startsWith('--')).join().split('=').slice(1);
 
@@ -64,6 +66,9 @@ const commands = {
   },
   hash(path_to_file) {
     calcHash(path_to_file);
+  },
+  os(flag) {
+    getSystemInfo(flag);
   }
 };
 
@@ -78,7 +83,7 @@ rl
     } else if (command) {
       command(args.length > 1 ? args : args.join(''));
     } else {
-      console.error('Invalid input');
+      invalidError();
     }
 
     currentDirectoryMessage();
