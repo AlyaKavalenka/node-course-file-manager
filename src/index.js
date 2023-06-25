@@ -13,6 +13,7 @@ import calcHash from './commands/calcHash.js';
 import getSystemInfo from './commands/getSystemInfo.js';
 import { invalidError } from './constants.js';
 import compressFile from './commands/compressFile.js';
+import decompressFile from './commands/decompressFile.js';
 
 const userName = process.argv.filter((item) => item.startsWith('--')).join().split('=').slice(1);
 
@@ -73,6 +74,9 @@ const commands = {
   },
   compress(args) {
     compressFile(args);
+  },
+  decompress(args) {
+    decompressFile(args);
   },
 };
 
