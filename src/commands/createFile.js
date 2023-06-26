@@ -6,8 +6,7 @@ export default function createFile(newFileName) {
   const filePath = path.join(process.cwd(), newFileName);
 
   if (fs.existsSync(filePath)) {
-    failedError();
-    console.error('File already exist');
+    failedError('File already exist');
   } else {
     fs.writeFileSync(filePath, '');
   }

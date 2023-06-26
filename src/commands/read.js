@@ -6,5 +6,5 @@ export default function read(pathToFile) {
 
   stream.on('data', (chunk) => console.log(chunk.toString()));
 
-  stream.on('error', () => failedError());
+  stream.on('error', (err) => failedError(err.message));
 }

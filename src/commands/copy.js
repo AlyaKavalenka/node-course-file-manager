@@ -9,6 +9,6 @@ export default async function copy(args) {
 
   read.pipe(write);
 
-  read.on('error', () => failedError());
-  write.on('error', () => failedError());
+  read.on('error', (err) => failedError(err.message));
+  write.on('error', (err) => failedError(err.message));
 }
